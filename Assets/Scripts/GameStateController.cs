@@ -6,30 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class GameStateController : MonoBehaviour
 {
-    [SerializeField]private CollectableController collectable;
-    public GameObject parent;
+    private GameObject collectables;
+    private UIManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
-        collectable = GetComponent<CollectableController>();
+        collectables = GameObject.FindGameObjectWithTag("Collectables");
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
-
     // Update is called once per frame
     void Update()
-    {
-        parent = GameObject.FindWithTag("Collectables");
-        if(parent == null)
+    {        
+        if (collectables)
 		{
-            Debug.LogError("Could not find GO");
-		} 
-        if(parent.transform.childCount == 0)
-        {
-            Debug.Log("Proceed to next level");
+            if(collectables.transform.childCount == 0)
+			{
+                LevelComplete();
+			}
 		}
-
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
 		}
+    }
+
+    public void LevelComplete()
+    {
+        SceneManager.LoadScene(2);
     }
 }

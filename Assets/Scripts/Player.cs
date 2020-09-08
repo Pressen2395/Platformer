@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	private float speed = 0f;
 	private float moveInput = 0f;
+	private Vector2 characterScale;
+	private float characterScaleX;
 	[SerializeField]
 	private float jumpForce = 0f;
 	private bool isSquished = false;
@@ -33,21 +35,29 @@ public class Player : MonoBehaviour
 	private enum State { idle, running, jumping, falling, damage };
 	private State state;
 	private bool canMove;	
+	[SerializeField]
+	private Transform fireBall;
+	private float canFire = -1f;
+	[SerializeField]
+	private float fireRate;
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
-		uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+		uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();		
 		points = 0;
 		health = 100;
 		state = State.idle;
 		canMove = true;
 		doubleJump = true;
+		characterScale = transform.localScale;
+		characterScaleX = characterScale.x;
 	}
 
 	private void Update()
 	{
+		;
 		if (canMove)
 		{
 			Move();
@@ -68,11 +78,12 @@ public class Player : MonoBehaviour
 					Jump();
 					doubleJump = false;
 				}
-			}
-			if (Input.GetKeyDown(KeyCode.Mouse0))
-			{
-				Instantiate(kunai, transform.position,Quaternion.identity);
-			}
+			}			
+		}
+		if(Input.GetKeyDown(KeyCode.Mouse0) && state != State.damage && Time.time > canFire)
+		{
+			Fire();
+			
 		}
 		velocityState();
 		animator.SetInteger("state", (int)state);
@@ -83,12 +94,13 @@ public class Player : MonoBehaviour
 		moveInput = Input.GetAxis("Horizontal");
 		if (moveInput > 0)
 		{
-			spriteRenderer.flipX = false;
+			characterScale.x = characterScaleX;
 		}
 		else if (moveInput < 0)
 		{
-			spriteRenderer.flipX = true;
+			characterScale.x = -characterScaleX;
 		}
+		transform.localScale = characterScale;
 		rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 	}
 
@@ -96,6 +108,12 @@ public class Player : MonoBehaviour
 	{
 		rb.velocity = Vector2.up * jumpForce;
 		state = State.jumping;
+	}
+
+	void Fire()
+	{
+		canFire = Time.time + fireRate;
+		Instantiate(fireBall, transform.position, Quaternion.identity);
 	}
 
 	void velocityState()
@@ -153,7 +171,7 @@ public class Player : MonoBehaviour
 	public void AddScore(int score)
 	{
 		points += score;
-		uiManager.UpdateScore(points);
+		uiManager.UpdateScore(points);	
 	}
 
 	public void Damage(int damage)
@@ -176,9 +194,10 @@ public class Player : MonoBehaviour
 		canMove = true;
 	}
 
+
 	private void Die()
 	{
 		Destroy(this.gameObject);
-		uiManager.UpdateGameState();
+		uiManager.GameOverGameState();
 	}
 }

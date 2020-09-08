@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Text healthText;
 	[SerializeField] private Text gameOverText;
 	[SerializeField] private Text restartText;
+	[SerializeField] private Text levelText;
+	private Scene scene;
 	private void Start()
 	{	
 		gameOverText.gameObject.SetActive(false);
 		restartText.gameObject.SetActive(false);
+
+		scene = SceneManager.GetActiveScene();
+
+		levelText.text = scene.name;
 	}
 	public void UpdateScore(int score)
 	{
@@ -23,13 +30,12 @@ public class UIManager : MonoBehaviour
 	{		
 		healthText.text = "Health: " + health;
 	}
-	public void UpdateGameState()
+	public void GameOverGameState()
 	{
 		gameOverText.gameObject.SetActive(true);
 		restartText.gameObject.SetActive(true);
 		StartCoroutine(GameOverFlickerRoutine());
-	}
-
+	}	
 	IEnumerator GameOverFlickerRoutine()
 	{
 		while (true)
@@ -39,5 +45,5 @@ public class UIManager : MonoBehaviour
 			gameOverText.text = "";
 				yield return new WaitForSeconds(0.5f);
 		}
-	}
+	}	
 }

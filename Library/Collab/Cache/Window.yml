@@ -14,49 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Animations/Collectables/Apple.controller
-    - Assets/Animations/Collectables/Collectables_PickUp.anim
-    - Assets/Animations/Collectables/Collectables_PickUp.anim.meta
-    - Assets/Animations/Collectables/Melon.anim
-    - Assets/Animations/Collectables/Melon.anim.meta
-    - Assets/Animations/Collectables/Melon.controller
-    - Assets/Animations/Collectables/Melon.controller.meta
-    - Assets/Animations/Collectables/Orange.controller
-    - Assets/Animations/Interactables.meta
-    - Assets/Animations/Interactables/Box.meta
-    - Assets/Animations/Interactables/Box/Box.controller
-    - Assets/Animations/Interactables/Box/Box.controller.meta
-    - Assets/Animations/Interactables/Box/Box_Hit.anim
-    - Assets/Animations/Interactables/Box/Box_Hit.anim.meta
-    - Assets/Prefabs/Apple.prefab
-    - Assets/Prefabs/Box.prefab
-    - Assets/Prefabs/Box.prefab.meta
-    - Assets/Prefabs/Kunai.prefab
-    - Assets/Prefabs/Kunai.prefab.meta
-    - Assets/Prefabs/Melon.prefab
-    - Assets/Prefabs/Melon.prefab.meta
-    - Assets/Prefabs/Orange.prefab
+    - Assets/Prefabs/BeeGFX.prefab
+    - Assets/Prefabs/BeeGFX.prefab.meta
+    - Assets/Prefabs/FireBall.prefab
+    - Assets/Prefabs/FireBall.prefab.meta
     - Assets/Scenes/SampleScene.unity
-    - Assets/Scripts/CollectableController.cs
-    - Assets/Scripts/GameStateController.cs
+    - Assets/Scripts/FireBall.cs
+    - Assets/Scripts/FireBall.cs.meta
     - Assets/Scripts/Player.cs
     - Assets/Scripts/Player_Weapon.cs
     - Assets/Scripts/Player_Weapon.cs.meta
-    - Assets/Sprites/Collectables/Collected.png
-    - Assets/Sprites/Collectables/Collected.png.meta
-    - Assets/Sprites/Collectables/Melon.png
-    - Assets/Sprites/Collectables/Melon.png.meta
-    - Assets/Sprites/Interactables.meta
-    - Assets/Sprites/Interactables/Box.meta
-    - Assets/Sprites/Interactables/Box/Hit (28x24).png
-    - Assets/Sprites/Interactables/Box/Hit (28x24).png.meta
-    - Assets/Sprites/Interactables/Box/Idle.png
-    - Assets/Sprites/Interactables/Box/Idle.png.meta
     - Assets/Sprites/Kunai.png
     - Assets/Sprites/Kunai.png.meta
-    - ProjectSettings/TagManager.asset
+    - Assets/Sprites/fireball.png
+    - Assets/Sprites/fireball.png.meta
+    - Assets/Sprites/jacweapons1.png
+    - Assets/Sprites/jacweapons1.png.meta
     - 
-    m_Values: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    m_Values: 0000000000000000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

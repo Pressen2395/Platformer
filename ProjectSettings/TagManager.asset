@@ -9,6 +9,7 @@ TagManager:
   - Collectables
   - Border
   - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX

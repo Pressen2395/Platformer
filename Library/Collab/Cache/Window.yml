@@ -14,24 +14,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Prefabs/BeeGFX.prefab
-    - Assets/Prefabs/BeeGFX.prefab.meta
-    - Assets/Prefabs/FireBall.prefab
-    - Assets/Prefabs/FireBall.prefab.meta
-    - Assets/Scenes/SampleScene.unity
-    - Assets/Scripts/FireBall.cs
-    - Assets/Scripts/FireBall.cs.meta
-    - Assets/Scripts/Player.cs
-    - Assets/Scripts/Player_Weapon.cs
-    - Assets/Scripts/Player_Weapon.cs.meta
-    - Assets/Sprites/Kunai.png
-    - Assets/Sprites/Kunai.png.meta
-    - Assets/Sprites/fireball.png
-    - Assets/Sprites/fireball.png.meta
-    - Assets/Sprites/jacweapons1.png
-    - Assets/Sprites/jacweapons1.png.meta
+    - Assets/Materials/Blue.mat
+    - Assets/Materials/Blue.mat.meta
+    - Assets/Prefabs/Slime.prefab
+    - Assets/Prefabs/Spiked Ball 180.prefab
+    - Assets/Prefabs/Spiked Ball 180.prefab.meta
+    - Assets/Prefabs/Spiked Ball 360.prefab
+    - Assets/Prefabs/Spiked Ball 360.prefab.meta
+    - Assets/Scenes/Level 01.unity
+    - Assets/Scenes/Level 01.unity.meta
+    - Assets/Scenes/Level 02.unity
+    - Assets/Scenes/Level 02.unity.meta
+    - Assets/Scenes/Level 03.unity
+    - Assets/Scenes/Level 03.unity.meta
+    - Assets/Scripts/GameStateController.cs
+    - Assets/Scripts/ObstaclePlayerInteraction.cs
+    - Assets/Scripts/ObstaclePlayerInteraction.cs.meta
+    - Assets/Scripts/Patrol.cs
+    - Assets/Scripts/Patrol.cs.meta
+    - Assets/Scripts/Saw.cs
+    - Assets/Scripts/Saw.cs.meta
+    - Assets/Scripts/SawPatrol.cs
+    - Assets/Scripts/SawPatrol.cs.meta
+    - Assets/Scripts/SlimeBehavior.cs
+    - Assets/Scripts/SlimeBehavior.cs.meta
+    - Assets/Scripts/SpikedBall180.cs
+    - Assets/Scripts/SpikedBall180.cs.meta
+    - Assets/Sprites/Obstacles.meta
+    - Assets/Sprites/Obstacles/Saw.meta
+    - Assets/Sprites/Obstacles/Saw/Off.png
+    - Assets/Sprites/Obstacles/Saw/Off.png.meta
+    - Assets/Sprites/Obstacles/Saw/On (38x38).png
+    - Assets/Sprites/Obstacles/Saw/On (38x38).png.meta
+    - Assets/Sprites/Obstacles/Spiked Ball.meta
+    - Assets/Sprites/Obstacles/Spiked Ball/Chain.png
+    - Assets/Sprites/Obstacles/Spiked Ball/Chain.png.meta
+    - Assets/Sprites/Obstacles/Spiked Ball/Spiked Ball.png
+    - Assets/Sprites/Obstacles/Spiked Ball/Spiked Ball.png.meta
+    - ProjectSettings/EditorBuildSettings.asset
+    - ProjectSettings/TagManager.asset
     - 
-    m_Values: 0000000000000000000000000000000000
+    m_Values: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

@@ -8,11 +8,13 @@ public class GameStateController : MonoBehaviour
 {
     private GameObject collectables;
     private UIManager uiManager;
+    private Scene scene;
+    private bool newGame = true;
     // Start is called before the first frame update
     void Start()
     {
         collectables = GameObject.FindGameObjectWithTag("Collectables");
-        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();              
     }
     // Update is called once per frame
     void Update()
@@ -26,12 +28,13 @@ public class GameStateController : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
     }
 
     public void LevelComplete()
     {
-        SceneManager.LoadScene(2);
+        //SceneManager.GetActiveScene().buildIndex + 1
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

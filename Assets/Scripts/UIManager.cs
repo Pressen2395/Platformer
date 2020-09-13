@@ -6,22 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-	[SerializeField]
-	private Text scoreText;
+	[SerializeField] private Text scoreText;
 	[SerializeField] private Text healthText;
 	[SerializeField] private Text gameOverText;
 	[SerializeField] private Text restartText;
 	[SerializeField] private Text levelText;
 	private Scene scene;
+	private void Awake()
+	{
+		UpdateScore(Player.points);
+		UpdateHealth(Player.health);	
+	}
 	private void Start()
 	{	
 		gameOverText.gameObject.SetActive(false);
-		restartText.gameObject.SetActive(false);
-
+		restartText.gameObject.SetActive(false);		
 		scene = SceneManager.GetActiveScene();
-
-		levelText.text = scene.name;
+		levelText.text = scene.name;			
 	}
+	
+
 	public void UpdateScore(int score)
 	{
 		scoreText.text = "Score: " + score.ToString("0000"); //Score: 0000

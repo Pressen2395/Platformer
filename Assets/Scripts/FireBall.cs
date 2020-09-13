@@ -40,7 +40,7 @@ public class FireBall : MonoBehaviour
             Destroy(this.gameObject);
             player.AddScore(50);
 		}
-        else if (other.CompareTag("Ground"))
+        else if (other.CompareTag("Ground") || other.CompareTag("Border"))
 		{
             Destroy(this.gameObject);
 		}

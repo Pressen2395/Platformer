@@ -17,7 +17,7 @@ public class ObstaclePlayerInteraction : MonoBehaviour
 		}
 		if (other.CompareTag("Player"))
 		{
-			player.Damage(50);
+			player.Damage(30);
 		}
 
 	}

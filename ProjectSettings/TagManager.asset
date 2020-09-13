@@ -10,6 +10,8 @@ TagManager:
   - Border
   - Ground
   - Obstacle
+  - ScoreText
+  - HealthText
   layers:
   - Default
   - TransparentFX

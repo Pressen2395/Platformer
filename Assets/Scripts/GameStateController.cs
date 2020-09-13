@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,14 +8,11 @@ using UnityEngine.SceneManagement;
 public class GameStateController : MonoBehaviour
 {
     private GameObject collectables;
-    private UIManager uiManager;
-    private Scene scene;
-    private bool newGame = true;
-    // Start is called before the first frame update
+    public bool newGame;
+    // Start is called before the first frame update  
     void Start()
     {
         collectables = GameObject.FindGameObjectWithTag("Collectables");
-        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();              
     }
     // Update is called once per frame
     void Update()
@@ -34,7 +32,11 @@ public class GameStateController : MonoBehaviour
 
     public void LevelComplete()
     {
-        //SceneManager.GetActiveScene().buildIndex + 1
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.GetActiveScene().buildIndex + 1   
+        if(SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
+		{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+               
     }
 }

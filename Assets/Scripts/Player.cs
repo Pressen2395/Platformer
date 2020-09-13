@@ -25,13 +25,13 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	private LayerMask whatIsGround;
 	[SerializeField]private LayerMask whatIsEnemy;
-	private bool doubleJump;
-	private SpriteRenderer spriteRenderer;
+	private bool doubleJump;	
 	private Animator animator;
 	[SerializeField]
 	private UIManager uiManager;
-	private int points;
-	private int health;
+	private GameStateController gsc;	
+	public static int points = 0;
+	public static int health = 100;
 	private enum State { idle, running, jumping, falling, damage };
 	private State state;
 	private bool canMove;	
@@ -42,17 +42,16 @@ public class Player : MonoBehaviour
 	private float fireRate;
 	private void Start()
 	{
-		rb = GetComponent<Rigidbody2D>();
-		spriteRenderer = GetComponent<SpriteRenderer>();
+		rb = GetComponent<Rigidbody2D>();		
 		animator = GetComponent<Animator>();
-		uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();		
-		points = 0;
-		health = 100;
+		uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+		gsc = FindObjectOfType<GameStateController>();
 		state = State.idle;
 		canMove = true;
 		doubleJump = true;
 		characterScale = transform.localScale;
 		characterScaleX = characterScale.x;
+		
 	}
 
 	private void Update()
@@ -145,7 +144,7 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.collider.tag == "Enemy")
+		if (other.collider.tag == "Enemy" || other.collider.tag == "Obstacle")
 		{
 			if (!isSquished)
 			{
@@ -199,5 +198,6 @@ public class Player : MonoBehaviour
 	{
 		Destroy(this.gameObject);
 		uiManager.GameOverGameState();
+		gsc.newGame = true;
 	}
 }

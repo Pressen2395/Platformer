@@ -146,16 +146,28 @@ public class Player : MonoBehaviour
 	{
 		if (other.collider.tag == "Enemy" || other.collider.tag == "Obstacle")
 		{
-			if (!isSquished)
+			if (!isSquished) //if enemy isnt squished
 			{
-				Damage(20);
-				if (other.transform.position.x > transform.position.x)
+				if (other.collider.tag == "Enemy")
 				{
-					rb.velocity = new Vector2(-knockBack, rb.velocity.y);
+					if (other.transform.position.x > transform.position.x)
+					{
+						rb.velocity = new Vector2(-knockBack, rb.velocity.y);
+					}
+					else
+					{
+						rb.velocity = new Vector2(knockBack, rb.velocity.y);
+					}
 				}
-				else
+				
+				switch (other.collider.tag)
 				{
-					rb.velocity = new Vector2(knockBack, rb.velocity.y);
+					case "Enemy": Damage(20);
+						break;
+					case "Obstacle": Damage(50);
+						break;
+					default:
+						break;
 				}
 			}
 			else
@@ -163,7 +175,7 @@ public class Player : MonoBehaviour
 				Jump();
 				Destroy(other.gameObject);
 				AddScore(20);
-			}
+			}			
 		}
 	}
 
@@ -174,13 +186,13 @@ public class Player : MonoBehaviour
 	}
 
 	public void Damage(int damage)
-	{
+	{		
 		canMove = false;
 		health -= damage;
 		animator.SetTrigger("damage");
 		uiManager.UpdateHealth(health);		
 		StartCoroutine(DamageCoroutine());
-		if(health == 0)
+		if (health == 0)
 		{
 			animator.SetBool("isDead", true);
 			Die();
@@ -198,6 +210,6 @@ public class Player : MonoBehaviour
 	{
 		Destroy(this.gameObject);
 		uiManager.GameOverGameState();
-		gsc.newGame = true;
+		gsc.newGame = true;		
 	}
 }

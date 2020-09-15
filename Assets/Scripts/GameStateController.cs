@@ -26,6 +26,8 @@ public class GameStateController : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.R))
 		{
+            Player.points = 0;
+            Player.health = 100;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
     }
@@ -37,6 +39,14 @@ public class GameStateController : MonoBehaviour
 		{
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-               
+        else
+		{
+            GameComplete();
+		}               
     }
+    public void GameComplete()
+	{
+        //GO to main Menu
+        Debug.Log("Go to Main Menu");
+	}
 }

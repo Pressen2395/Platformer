@@ -14,11 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
+    - Assets/Animations/Platforms.meta
+    - Assets/Animations/Platforms/Falling Platform.anim
+    - Assets/Animations/Platforms/Falling Platform.anim.meta
+    - Assets/Animations/Platforms/Falling Platform.controller
+    - Assets/Animations/Platforms/Falling Platform.controller.meta
+    - Assets/Prefabs/Apple.prefab
+    - Assets/Prefabs/Falling Platform.prefab
+    - Assets/Prefabs/Falling Platform.prefab.meta
+    - Assets/Prefabs/Melon.prefab
+    - Assets/Prefabs/Orange.prefab
+    - Assets/Prefabs/Saw.prefab
+    - Assets/Prefabs/Saw.prefab.meta
+    - Assets/Scenes/Level 01.unity
+    - Assets/Scenes/Level 02.unity
+    - Assets/Scenes/Level 03.unity
+    - Assets/Scripts/FallingPlatform.cs
+    - Assets/Scripts/FallingPlatform.cs.meta
+    - Assets/Scripts/GameStateController.cs
+    - Assets/Scripts/Player.cs
+    - Assets/Scripts/SawPatrol.cs
+    - Assets/Scripts/SawPatrol.cs.meta
+    - Assets/Sprites/Platforms.meta
+    - Assets/Sprites/Platforms/Falling Platform.meta
+    - Assets/Sprites/Platforms/Falling Platform/Off.png
+    - Assets/Sprites/Platforms/Falling Platform/Off.png.meta
+    - Assets/Sprites/Platforms/Falling Platform/On (32x10).png
+    - Assets/Sprites/Platforms/Falling Platform/On (32x10).png.meta
     - 
-    m_Values: 01
-  RevisionSummary: "1. Score and Health are displayed properly from Level 2 onwards.
-    \n2. Added more obstacles in Level 2\n3.Remoned sample scene from build settings\n4.
-    Levels now load based on scene count."
+    m_Values: 01010101010101010101010101010101010101010101010101010101
+  RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
